@@ -64,8 +64,6 @@ while 1:
               f.close()
               watts=float(atemp[0])
               watts1=float(atemp1[0])
-#              if watts>15.0:
-#                 watts=watts*1.00
               watts=watts+watts1
               itemp=int(watts*1000)
               if (watts>0.0) and (watts<150.0):
@@ -88,9 +86,7 @@ while 1:
                     temp_list=avg_watts.tolist()
                     OneMinRate=(OneMinRate * 60)/1000.0
                     FiveMinRate=(sum(temp_list[-5:])*12)/1000.0
-#                    print temp_list[-5:]
                     HourRate=sum(temp_list)/1000.0
-#                    print temp_list
                     f=open('/dev/shm/power13.hist','w')
                     temp_str="%8.2f,%8.2f,%8.2f"%(OneMinRate,FiveMinRate,HourRate)
                     f.write(temp_str.replace(" ",""))
